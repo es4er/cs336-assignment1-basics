@@ -14,6 +14,10 @@ run cache on 2026-09-18. The broad sweep covers peak learning rates from
 for 500 iterations. Runs use cosine decay and therefore report a final learning
 rate below the configured peak.
 
+The canonical run table is available in the
+[W&B project dashboard](https://wandb.ai/meiyuxin7-china-university-of-petroleum/cs336-assignment1/table).
+Access currently requires permission from the project owner.
+
 ![Endpoint loss across peak learning rates](lr_sweep_endpoints.svg)
 
 ## Findings
@@ -58,4 +62,3 @@ Regenerate the figure with:
 ```bash
 python experiments/lr_sweep/plot_results.py
 ```
-

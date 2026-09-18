@@ -14,6 +14,7 @@ detailed Chinese study notes and an evidence-based learning-rate sweep report.
 - [Implementation](cs336_basics/) · [Training entry point](main_train.py)
 - [Complete Assignment 1 notes](docs/notes/assignment1.md)
 - [Learning-rate sweep report](experiments/lr_sweep/README.md)
+- [Weights & Biases experiment dashboard](https://wandb.ai/meiyuxin7-china-university-of-petroleum/cs336-assignment1/table)
 - [B200 training and sampling protocol](experiments/b200_protocol.md)
 - [Ablation plan](experiments/ablations.md)
 - [Assignment handout](cs336_assignment1_basics.pdf)
@@ -114,4 +115,3 @@ The assignment scaffold, tests, and handout originate from Stanford CS336. The
 implementation, notes, experiment records, and analysis in this repository are the
 author's work. The upstream license is preserved in [LICENSE](LICENSE). This is an
 educational reproduction, not an official Stanford repository.
-
