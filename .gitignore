@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local datasets, checkpoints, and experiment telemetry
+data/
+out/
+wandb/
+tmp/
+*.pt
+*.pth
+*.ckpt
+!tests/fixtures/ts_tests/model.pt
+
+# Local secrets
+.env
+.env.*
+!.env.example

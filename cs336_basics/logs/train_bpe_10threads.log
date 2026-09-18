@@ -1,0 +1,131 @@
+开始训练BPE分词器(目标词表大小：10000)...
+训练数据：../data/TinyStoriesV2-GPT4-train.txt
+这是正式训练阶段，使用 TinyStories Train 数据集
+使用 10 个进程并行预分词...
+开始进行 pre-tokenization...
+开始进行 pre-tokenization...
+开始进行 pre-tokenization...
+开始进行 pre-tokenization...
+开始进行 pre-tokenization...
+开始进行 pre-tokenization...
+开始进行 pre-tokenization...
+开始进行 pre-tokenization...
+开始进行 pre-tokenization...
+开始进行 pre-tokenization...
+预分词完成，共 59,568 个唯一单词
+预分词耗时: 169.00 秒
+建立 word 列表完成，共 59,568 个 unique words
+开始 BPE merge，共计划进行 9,743 次 merge...
+BPE progress: 1/9,743 (0.0%) | pair=(b' ', b't') | freq=63,482,199 | remaining_pairs=2,115
+BPE progress: 100/9,743 (1.0%) | pair=(b' ha', b'pp') | freq=3,147,884 | remaining_pairs=6,635
+BPE progress: 200/9,743 (2.1%) | pair=(b' to', b'gether') | freq=1,406,956 | remaining_pairs=9,553
+BPE progress: 300/9,743 (3.1%) | pair=(b' g', b'ood') | freq=785,910 | remaining_pairs=12,087
+BPE progress: 400/9,743 (4.1%) | pair=(b' wh', b'o') | freq=520,029 | remaining_pairs=14,972
+BPE progress: 500/9,743 (5.1%) | pair=(b' mu', b'ch') | freq=368,857 | remaining_pairs=16,782
+BPE progress: 600/9,743 (6.2%) | pair=(b' d', b'an') | freq=278,259 | remaining_pairs=18,655
+BPE progress: 700/9,743 (7.2%) | pair=(b' I', b'n') | freq=220,732 | remaining_pairs=20,045
+BPE progress: 800/9,743 (8.2%) | pair=(b's', b'o') | freq=177,056 | remaining_pairs=21,610
+BPE progress: 900/9,743 (9.2%) | pair=(b'em', b'ber') | freq=147,375 | remaining_pairs=22,751
+BPE progress: 1,000/9,743 (10.3%) | pair=(b' ag', b'reed') | freq=126,255 | remaining_pairs=23,765
+BPE progress: 1,100/9,743 (11.3%) | pair=(b'at', b'er') | freq=107,688 | remaining_pairs=24,617
+BPE progress: 1,200/9,743 (12.3%) | pair=(b' he', b'ld') | freq=91,565 | remaining_pairs=25,433
+BPE progress: 1,300/9,743 (13.3%) | pair=(b' mu', b's') | freq=79,937 | remaining_pairs=26,268
+BPE progress: 1,400/9,743 (14.4%) | pair=(b' br', b'ought') | freq=67,470 | remaining_pairs=27,475
+BPE progress: 1,500/9,743 (15.4%) | pair=(b' or', b'ange') | freq=59,534 | remaining_pairs=28,196
+BPE progress: 1,600/9,743 (16.4%) | pair=(b' e', b'gg') | freq=53,406 | remaining_pairs=29,159
+BPE progress: 1,700/9,743 (17.4%) | pair=(b'is', b'a') | freq=47,482 | remaining_pairs=30,046
+BPE progress: 1,800/9,743 (18.5%) | pair=(b' po', b'cket') | freq=43,239 | remaining_pairs=30,643
+BPE progress: 1,900/9,743 (19.5%) | pair=(b' hug', b'e') | freq=38,754 | remaining_pairs=31,345
+BPE progress: 2,000/9,743 (20.5%) | pair=(b' o', b'ven') | freq=35,397 | remaining_pairs=32,014
+BPE progress: 2,100/9,743 (21.6%) | pair=(b' fan', b'cy') | freq=32,447 | remaining_pairs=32,798
+BPE progress: 2,200/9,743 (22.6%) | pair=(b' M', b'ary') | freq=30,073 | remaining_pairs=33,313
+BPE progress: 2,300/9,743 (23.6%) | pair=(b' n', b'er') | freq=27,368 | remaining_pairs=33,818
+BPE progress: 2,400/9,743 (24.6%) | pair=(b'Tom', b'my') | freq=25,221 | remaining_pairs=34,328
+BPE progress: 2,500/9,743 (25.7%) | pair=(b' ro', b'ar') | freq=23,371 | remaining_pairs=34,763
+BPE progress: 2,600/9,743 (26.7%) | pair=(b'kn', b'own') | freq=21,772 | remaining_pairs=35,101
+BPE progress: 2,700/9,743 (27.7%) | pair=(b' sol', b've') | freq=20,460 | remaining_pairs=35,515
+BPE progress: 2,800/9,743 (28.7%) | pair=(b' or', b'iginal') | freq=19,433 | remaining_pairs=35,907
+BPE progress: 2,900/9,743 (29.8%) | pair=(b'ber', b'ries') | freq=18,321 | remaining_pairs=36,155
+BPE progress: 3,000/9,743 (30.8%) | pair=(b'op', b'l') | freq=17,377 | remaining_pairs=36,513
+BPE progress: 3,100/9,743 (31.8%) | pair=(b'it', b'her') | freq=16,594 | remaining_pairs=36,706
+BPE progress: 3,200/9,743 (32.8%) | pair=(b' m', b'ill') | freq=15,845 | remaining_pairs=36,940
+BPE progress: 3,300/9,743 (33.9%) | pair=(b' sk', b'in') | freq=15,090 | remaining_pairs=37,122
+BPE progress: 3,400/9,743 (34.9%) | pair=(b' am', b'bulance') | freq=14,390 | remaining_pairs=37,383
+BPE progress: 3,500/9,743 (35.9%) | pair=(b'ut', b'es') | freq=13,551 | remaining_pairs=37,632
+BPE progress: 3,600/9,743 (36.9%) | pair=(b' str', b'ugg') | freq=12,979 | remaining_pairs=37,891
+BPE progress: 3,700/9,743 (38.0%) | pair=(b' ', b'iron') | freq=12,411 | remaining_pairs=38,097
+BPE progress: 3,800/9,743 (39.0%) | pair=(b'E', b'm') | freq=11,878 | remaining_pairs=38,300
+BPE progress: 3,900/9,743 (40.0%) | pair=(b' perf', b'ume') | freq=11,315 | remaining_pairs=38,480
+BPE progress: 4,000/9,743 (41.1%) | pair=(b'f', b'ast') | freq=10,756 | remaining_pairs=38,745
+BPE progress: 4,100/9,743 (42.1%) | pair=(b'bb', b'les') | freq=10,078 | remaining_pairs=38,893
+BPE progress: 4,200/9,743 (43.1%) | pair=(b' ar', b't') | freq=9,424 | remaining_pairs=39,182
+BPE progress: 4,300/9,743 (44.1%) | pair=(b' stri', b'p') | freq=8,890 | remaining_pairs=39,498
+BPE progress: 4,400/9,743 (45.2%) | pair=(b' spray', b'ed') | freq=8,270 | remaining_pairs=39,662
+BPE progress: 4,500/9,743 (46.2%) | pair=(b' pa', b'id') | freq=7,596 | remaining_pairs=39,914
+BPE progress: 4,600/9,743 (47.2%) | pair=(b' tw', b'isted') | freq=7,092 | remaining_pairs=40,077
+BPE progress: 4,700/9,743 (48.2%) | pair=(b'M', b'imi') | freq=6,570 | remaining_pairs=40,176
+BPE progress: 4,800/9,743 (49.3%) | pair=(b'g', b'ie') | freq=6,143 | remaining_pairs=40,322
+BPE progress: 4,900/9,743 (50.3%) | pair=(b' van', b'ish') | freq=5,714 | remaining_pairs=40,531
+BPE progress: 5,000/9,743 (51.3%) | pair=(b' Sp', b'ark') | freq=5,306 | remaining_pairs=40,788
+BPE progress: 5,100/9,743 (52.3%) | pair=(b' M', b'illie') | freq=4,903 | remaining_pairs=41,092
+BPE progress: 5,200/9,743 (53.4%) | pair=(b' mix', b'ing') | freq=4,521 | remaining_pairs=41,304
+BPE progress: 5,300/9,743 (54.4%) | pair=(b' sister', b's') | freq=4,208 | remaining_pairs=41,467
+BPE progress: 5,400/9,743 (55.4%) | pair=(b' meas', b'uring') | freq=3,869 | remaining_pairs=41,643
+BPE progress: 5,500/9,743 (56.5%) | pair=(b'en', b'a') | freq=3,570 | remaining_pairs=41,881
+BPE progress: 5,600/9,743 (57.5%) | pair=(b'S', b'p') | freq=3,291 | remaining_pairs=42,198
+BPE progress: 5,700/9,743 (58.5%) | pair=(b' drag', b'ons') | freq=3,110 | remaining_pairs=42,358
+BPE progress: 5,800/9,743 (59.5%) | pair=(b' real', b'ize') | freq=2,919 | remaining_pairs=42,491
+BPE progress: 5,900/9,743 (60.6%) | pair=(b' H', b'ippy') | freq=2,702 | remaining_pairs=42,648
+BPE progress: 6,000/9,743 (61.6%) | pair=(b' E', b'njoy') | freq=2,527 | remaining_pairs=42,776
+BPE progress: 6,100/9,743 (62.6%) | pair=(b' help', b'ers') | freq=2,385 | remaining_pairs=42,912
+BPE progress: 6,200/9,743 (63.6%) | pair=(b' knowled', b'ge') | freq=2,226 | remaining_pairs=42,956
+BPE progress: 6,300/9,743 (64.7%) | pair=(b' choice', b's') | freq=2,096 | remaining_pairs=43,172
+BPE progress: 6,400/9,743 (65.7%) | pair=(b'ab', b'el') | freq=1,984 | remaining_pairs=43,350
+BPE progress: 6,500/9,743 (66.7%) | pair=(b' swan', b's') | freq=1,877 | remaining_pairs=43,516
+BPE progress: 6,600/9,743 (67.7%) | pair=(b' st', b'ool') | freq=1,779 | remaining_pairs=43,695
+BPE progress: 6,700/9,743 (68.8%) | pair=(b' calm', b'ed') | freq=1,677 | remaining_pairs=43,789
+BPE progress: 6,800/9,743 (69.8%) | pair=(b' M', b'ic') | freq=1,594 | remaining_pairs=44,037
+BPE progress: 6,900/9,743 (70.8%) | pair=(b' end', b's') | freq=1,513 | remaining_pairs=44,175
+BPE progress: 7,000/9,743 (71.8%) | pair=(b' sque', b'ak') | freq=1,427 | remaining_pairs=44,281
+BPE progress: 7,100/9,743 (72.9%) | pair=(b' wa', b'king') | freq=1,361 | remaining_pairs=44,391
+BPE progress: 7,200/9,743 (73.9%) | pair=(b' pay', b's') | freq=1,284 | remaining_pairs=44,555
+BPE progress: 7,300/9,743 (74.9%) | pair=(b'K', b'eep') | freq=1,212 | remaining_pairs=44,674
+BPE progress: 7,400/9,743 (76.0%) | pair=(b'c', b'a') | freq=1,153 | remaining_pairs=44,741
+BPE progress: 7,500/9,743 (77.0%) | pair=(b' cor', b'rect') | freq=1,091 | remaining_pairs=44,842
+BPE progress: 7,600/9,743 (78.0%) | pair=(b' Rob', b'bie') | freq=1,044 | remaining_pairs=44,882
+BPE progress: 7,700/9,743 (79.0%) | pair=(b' g', b'ap') | freq=999 | remaining_pairs=45,045
+BPE progress: 7,800/9,743 (80.1%) | pair=(b' s', b'ou') | freq=961 | remaining_pairs=45,149
+BPE progress: 7,900/9,743 (81.1%) | pair=(b' fin', b'ishing') | freq=917 | remaining_pairs=45,357
+BPE progress: 8,000/9,743 (82.1%) | pair=(b' r', b'owed') | freq=875 | remaining_pairs=45,393
+BPE progress: 8,100/9,743 (83.1%) | pair=(b'r', b'is') | freq=837 | remaining_pairs=45,540
+BPE progress: 8,200/9,743 (84.2%) | pair=(b'up', b'er') | freq=805 | remaining_pairs=45,594
+BPE progress: 8,300/9,743 (85.2%) | pair=(b' rec', b'order') | freq=775 | remaining_pairs=45,676
+BPE progress: 8,400/9,743 (86.2%) | pair=(b'g', b'ood') | freq=744 | remaining_pairs=45,805
+BPE progress: 8,500/9,743 (87.2%) | pair=(b' fis', b'hes') | freq=712 | remaining_pairs=45,861
+BPE progress: 8,600/9,743 (88.3%) | pair=(b'N', b'ever') | freq=687 | remaining_pairs=45,955
+BPE progress: 8,700/9,743 (89.3%) | pair=(b'F', b'ire') | freq=655 | remaining_pairs=46,068
+BPE progress: 8,800/9,743 (90.3%) | pair=(b' as', b's') | freq=630 | remaining_pairs=46,191
+BPE progress: 8,900/9,743 (91.3%) | pair=(b' Am', b'anda') | freq=606 | remaining_pairs=46,250
+BPE progress: 9,000/9,743 (92.4%) | pair=(b' Pen', b'elope') | freq=583 | remaining_pairs=46,375
+BPE progress: 9,100/9,743 (93.4%) | pair=(b' gl', b'ared') | freq=560 | remaining_pairs=46,427
+BPE progress: 9,200/9,743 (94.4%) | pair=(b' B', b'ooks') | freq=540 | remaining_pairs=46,552
+BPE progress: 9,300/9,743 (95.5%) | pair=(b' kiss', b'ing') | freq=518 | remaining_pairs=46,648
+BPE progress: 9,400/9,743 (96.5%) | pair=(b' calm', b'er') | freq=499 | remaining_pairs=46,681
+BPE progress: 9,500/9,743 (97.5%) | pair=(b' sure', b'ly') | freq=481 | remaining_pairs=46,775
+BPE progress: 9,600/9,743 (98.5%) | pair=(b' sec', b'urity') | freq=467 | remaining_pairs=46,799
+BPE progress: 9,700/9,743 (99.6%) | pair=(b' al', b'oud') | freq=453 | remaining_pairs=46,867
+BPE progress: 9,743/9,743 (100.0%) | pair=(b' peel', b's') | freq=444 | remaining_pairs=46,886
+BPE merge 完成：9,743 merges
+最终 vocabulary size：10,000
+BPE 合并耗时: 40.36 秒
+词表已保存：../data/TinyStoriesV2-GPT4-train\vocab.json
+合并规则已保存：../data/TinyStoriesV2-GPT4-train\merges.txt
+BPE训练完成!
+vocab size: 10000
+merge count: 9743
+==================================================
+训练耗时: 210.05 秒
+训练耗时: 3.50 分钟
+内存使用: 0.25 GB
+峰值内存: 0.27 GB
+==================================================

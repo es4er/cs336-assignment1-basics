@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If this repository supports your work, please cite it as below."
+title: "CS336 Assignment 1: Language Modeling from Scratch"
+type: software
+authors:
+  - family-names: "Mei"
+    given-names: "Yuxin"
+repository-code: "https://github.com/es4er/cs336-assignment1-basics"
+license: MIT
+keywords:
+  - language modeling
+  - transformer
+  - byte-pair encoding
+  - optimization
+  - CS336

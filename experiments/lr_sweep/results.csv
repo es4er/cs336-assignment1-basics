@@ -1,0 +1,17 @@
+run_name,max_lr,min_lr,max_iters,final_train_loss,final_val_loss,elapsed_seconds,interpretation
+sweep_lr_1e-7,1e-7,1e-8,200,9.233712,9.228760,111.75,under-training
+sweep_lr_1e-6,1e-6,1e-7,200,9.111056,9.166118,111.56,under-training
+sweep_lr_1e-5,1e-5,1e-6,200,7.911495,8.312262,116.79,slow convergence
+sweep_lr_1e-4_200,1e-4,1e-5,200,4.382054,7.070363,112.08,best 200-step validation endpoint
+sweep_lr_1e-3,1e-3,1e-4,200,2.993591,8.014069,112.51,fast fit but worse generalization
+sweep_lr_1e-2,1e-2,1e-3,200,3.538957,8.468893,112.55,unstable or over-aggressive
+sweep_lr_1e-1,1e-1,1e-2,200,4.689962,8.107309,112.23,strongly over-aggressive
+fine_lr_2e-4,2e-4,2e-5,500,3.022297,7.824758,285.10,stable
+fine_lr_3e-4,3e-4,3e-5,500,2.823383,7.975051,285.95,train improves val worsens
+fine_lr_4e-4,4e-4,4e-5,500,2.689525,8.121428,284.10,train improves val worsens
+fine_lr_5e-4,5e-4,5e-5,500,2.641422,8.135128,287.67,train improves val worsens
+fine_lr_7e-4,7e-4,7e-5,500,2.515281,8.346185,287.14,largest generalization gap
+final_lr_1e-4,1e-4,1e-5,500,3.492708,7.559763,302.92,best comparable 500-step validation endpoint
+final_lr_1.25e-4,1.25e-4,1.25e-5,500,3.297474,7.671851,272.45,slightly worse than 1e-4
+diagnose_lr_1e-4_1000,1e-4,1e-5,1000,2.977642,7.825284,734.73,validation degrades with longer training
+

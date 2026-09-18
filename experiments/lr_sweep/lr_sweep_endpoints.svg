@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+<rect width="100%" height="100%" fill="#fbfbfd"/>
+<style>text{font-family:Inter,Segoe UI,sans-serif;fill:#172033}.axis{stroke:#748094;stroke-width:1}.grid{stroke:#dfe3ea;stroke-width:1}.train{stroke:#2563eb;fill:none;stroke-width:3}.val{stroke:#dc2626;fill:none;stroke-width:3}.dot-t{fill:#2563eb}.dot-v{fill:#dc2626}</style>
+<text x="82" y="28" font-size="20" font-weight="700">Learning-rate sweep: final loss at 200 steps</text>
+<line class="grid" x1="82.0" y1="50" x2="82.0" y2="448"/>
+<text x="82.0" y="476" text-anchor="middle" font-size="13">1e-7</text>
+<line class="grid" x1="213.33333333333331" y1="50" x2="213.33333333333331" y2="448"/>
+<text x="213.33333333333331" y="476" text-anchor="middle" font-size="13">1e-6</text>
+<line class="grid" x1="344.66666666666663" y1="50" x2="344.66666666666663" y2="448"/>
+<text x="344.66666666666663" y="476" text-anchor="middle" font-size="13">1e-5</text>
+<line class="grid" x1="476.0" y1="50" x2="476.0" y2="448"/>
+<text x="476.0" y="476" text-anchor="middle" font-size="13">1e-4</text>
+<line class="grid" x1="607.3333333333333" y1="50" x2="607.3333333333333" y2="448"/>
+<text x="607.3333333333333" y="476" text-anchor="middle" font-size="13">1e-3</text>
+<line class="grid" x1="738.6666666666667" y1="50" x2="738.6666666666667" y2="448"/>
+<text x="738.6666666666667" y="476" text-anchor="middle" font-size="13">1e-2</text>
+<line class="grid" x1="870.0" y1="50" x2="870.0" y2="448"/>
+<text x="870.0" y="476" text-anchor="middle" font-size="13">1e-1</text>
+<line class="grid" x1="82" y1="448.0" x2="870" y2="448.0"/>
+<text x="68" y="453.0" text-anchor="end" font-size="13">2</text>
+<line class="grid" x1="82" y1="398.25" x2="870" y2="398.25"/>
+<text x="68" y="403.25" text-anchor="end" font-size="13">3</text>
+<line class="grid" x1="82" y1="348.5" x2="870" y2="348.5"/>
+<text x="68" y="353.5" text-anchor="end" font-size="13">4</text>
+<line class="grid" x1="82" y1="298.75" x2="870" y2="298.75"/>
+<text x="68" y="303.75" text-anchor="end" font-size="13">5</text>
+<line class="grid" x1="82" y1="249.0" x2="870" y2="249.0"/>
+<text x="68" y="254.0" text-anchor="end" font-size="13">6</text>
+<line class="grid" x1="82" y1="199.25" x2="870" y2="199.25"/>
+<text x="68" y="204.25" text-anchor="end" font-size="13">7</text>
+<line class="grid" x1="82" y1="149.5" x2="870" y2="149.5"/>
+<text x="68" y="154.5" text-anchor="end" font-size="13">8</text>
+<line class="grid" x1="82" y1="99.75" x2="870" y2="99.75"/>
+<text x="68" y="104.75" text-anchor="end" font-size="13">9</text>
+<line class="grid" x1="82" y1="50.0" x2="870" y2="50.0"/>
+<text x="68" y="55.0" text-anchor="end" font-size="13">10</text>
+<line class="axis" x1="82" y1="448" x2="870" y2="448"/>
+<line class="axis" x1="82" y1="50" x2="82" y2="448"/>
+<polyline class="train" points="82.0,88.1 213.3,94.2 344.7,153.9 476.0,329.5 607.3,398.6 738.7,371.4 870.0,314.2"/>
+<polyline class="val" points="82.0,88.4 213.3,91.5 344.7,134.0 476.0,195.7 607.3,148.8 738.7,126.2 870.0,144.2"/>
+<circle class="dot-t" cx="82.0" cy="88.12282799999997" r="4"/>
+<circle class="dot-v" cx="82.0" cy="88.36919000000003" r="4"/>
+<circle class="dot-t" cx="213.33333333333331" cy="94.22496400000003" r="4"/>
+<circle class="dot-v" cx="213.33333333333331" cy="91.48562949999996" r="4"/>
+<circle class="dot-t" cx="344.66666666666663" cy="153.90312374999996" r="4"/>
+<circle class="dot-v" cx="344.66666666666663" cy="133.96496549999998" r="4"/>
+<circle class="dot-t" cx="476.0" cy="329.4928135" r="4"/>
+<circle class="dot-v" cx="476.0" cy="195.74944075" r="4"/>
+<circle class="dot-t" cx="607.3333333333333" cy="398.56884775" r="4"/>
+<circle class="dot-v" cx="607.3333333333333" cy="148.80006725000004" r="4"/>
+<circle class="dot-t" cx="738.6666666666667" cy="371.43688925" r="4"/>
+<circle class="dot-v" cx="738.6666666666667" cy="126.17257325000003" r="4"/>
+<circle class="dot-t" cx="870.0" cy="314.17439049999996" r="4"/>
+<circle class="dot-v" cx="870.0" cy="144.16137724999996" r="4"/>
+<text x="476.0" y="502" text-anchor="middle" font-size="14">Peak learning rate (log scale)</text>
+<text x="20" y="249.0" text-anchor="middle" font-size="14" transform="rotate(-90 20 249.0)">Loss</text>
+<line class="train" x1="650" y1="25" x2="690" y2="25"/><text x="700" y="30" font-size="13">train</text>
+<line class="val" x1="770" y1="25" x2="810" y2="25"/><text x="820" y="30" font-size="13">validation</text>
+</svg>
