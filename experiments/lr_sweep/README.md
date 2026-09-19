@@ -40,22 +40,38 @@ Access currently requires permission from the project owner.
 5. **Longer is not yet better.** Extending `1e-4` from 500 to 1000 iterations
    lowers training loss but raises validation loss (`7.560` → `7.825`).
 
-## Critical validity check
+## Data-pipeline diagnosis and repair
 
-The validation losses are unexpectedly high relative to training loss. Before
-spending B200 time, verify that train and validation `.bin` files were produced
-with the **same tokenizer vocabulary and merge table**. The repository currently
-contains separate tokenizer directories under the local data tree, which makes a
-train/validation token-ID mismatch a plausible confounder. Also fix a single
-random seed and report mean ± standard deviation over at least three seeds for
-the final learning-rate comparison.
+The original sweep encoded train and validation with different tokenizer artifacts.
+Their vocabulary and merge-file SHA-256 hashes differed, so equal token IDs did not
+have equal byte semantics across splits. This invalidates the old validation losses
+for model selection.
+
+The validation text was re-encoded with the tokenizer trained on the training split.
+A controlled 200-step diagnostic at peak learning rate `1e-4` produced:
+
+| Step | Train loss | Validation loss |
+|---:|---:|---:|
+| 0 | 9.2524 | 9.2509 |
+| 50 | 6.3022 | 6.2953 |
+| 100 | 4.8862 | 4.9101 |
+| 150 | 4.4702 | 4.4379 |
+| 199 | 4.3364 | 4.3118 |
+
+The synchronized curves confirm that the previous `3` versus `7–8` gap was caused
+by the tokenizer/data pipeline, not insufficient training duration. Use
+[`scripts/reencode_validation.py`](../../scripts/reencode_validation.py) to rebuild
+validation data reproducibly. The generated file contained 5,506,301 tokens with
+IDs in `10..9999` for a 10,000-entry vocabulary and passed an encode/decode
+round-trip check.
 
 ## Decision for the next run
 
-Use `1e-4` as the provisional baseline, then run a confirmation grid
-`{7.5e-5, 1e-4, 1.25e-4, 1.5e-4, 2e-4}` after repairing/validating the shared
-tokenizer pipeline. Hold the token budget and warmup fraction constant; do not
-compare runs whose `max_iters` or evaluation sample count differs without saying so.
+Discard the old validation endpoints for hyperparameter selection and rerun the
+broad sweep on the repaired data. Start with `{1e-5, 1e-4, 1e-3, 1e-2}` to locate
+the useful and divergent regimes, then refine around the best region. Hold the token
+budget and warmup fraction constant, fix random seeds, and report mean ± standard
+deviation over at least three seeds for the final comparison.
 
 Regenerate the figure with:
 

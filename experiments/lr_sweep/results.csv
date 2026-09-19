@@ -14,4 +14,4 @@ fine_lr_7e-4,7e-4,7e-5,500,2.515281,8.346185,287.14,largest generalization gap
 final_lr_1e-4,1e-4,1e-5,500,3.492708,7.559763,302.92,best comparable 500-step validation endpoint
 final_lr_1.25e-4,1.25e-4,1.25e-5,500,3.297474,7.671851,272.45,slightly worse than 1e-4
 diagnose_lr_1e-4_1000,1e-4,1e-5,1000,2.977642,7.825284,734.73,validation degrades with longer training
-
+diagnose_shared_tokenizer_lr_1e-4_200,1e-4,1e-5,200,4.3364,4.3118,107.87,valid diagnostic after shared-tokenizer repair

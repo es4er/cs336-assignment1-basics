@@ -3,7 +3,7 @@ import json
 import time
 import numpy as np
 from typing import List, Dict, Iterable
-from tokenizer import BPETokenizer
+from .tokenizer import BPETokenizer
 
 
 def bytes_to_unicode():

@@ -47,10 +47,12 @@ reduce training loss faster but widen the train–validation gap.
 
 ![Learning-rate sweep endpoints](experiments/lr_sweep/lr_sweep_endpoints.svg)
 
-This conclusion is provisional. Validation losses remain unexpectedly high, so the
-shared-tokenizer invariant must be verified before interpreting the gap as pure
-generalization behavior. The full analysis records comparable subsets, caveats,
-and the next confirmation grid in the [sweep report](experiments/lr_sweep/README.md).
+The original validation-loss anomaly was traced to encoding the two splits with
+different tokenizers. After re-encoding validation data with the training
+vocabulary and merges, a 200-step diagnostic ended at train/validation losses of
+`4.336/4.312`, respectively. The full analysis records the before/after evidence,
+remaining caveats, and next confirmation grid in the
+[sweep report](experiments/lr_sweep/README.md).
 
 ## Repository structure
 
@@ -100,6 +102,9 @@ uv run python main_train.py \
 
 - Current sweep rows are reconstructed from local W&B summaries and are endpoint
   comparisons, not a substitute for exported full histories.
+- Early sweep validation endpoints are invalid for model selection because the
+  validation split was encoded with a different tokenizer. They are retained as a
+  documented data-pipeline failure; new sweeps must use the shared-tokenizer data.
 - Runs with different iteration counts or evaluation sample counts are labeled and
   should not be compared as if they were controlled replicates.
 - Random seeds were not frozen in the existing sweep; final claims require at least
