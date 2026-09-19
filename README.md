@@ -13,9 +13,7 @@ detailed Chinese study notes and an evidence-based learning-rate sweep report.
 
 - [Implementation](cs336_basics/) · [Training entry point](main_train.py)
 - [Complete Assignment 1 notes](docs/notes/assignment1.md)
-- [Learning-rate sweep report](experiments/lr_sweep/README.md)
 - [Weights & Biases experiment dashboard](https://wandb.ai/meiyuxin7-china-university-of-petroleum/cs336-assignment1/table)
-- [B200 training and sampling protocol](experiments/b200_protocol.md)
 - [Ablation plan](experiments/ablations.md)
 - [Assignment handout](cs336_assignment1_basics.pdf)
 
@@ -39,21 +37,6 @@ This project uses a from-scratch implementation to study three questions:
 | Training | Cross-entropy, AdamW, cosine schedule with warmup, gradient clipping, memory-mapped batches, checkpoint save/resume |
 | Experimentation | W&B logging, learning-rate sweeps, architectural switches, planned B200 baseline and sampling study |
 
-## Learning-rate sweep: current result
-
-The cached runs cover peak learning rates from `1e-7` to `1e-1`. The best observed
-validation endpoint is near `1e-4`; smaller rates under-train, while larger rates
-reduce training loss faster but widen the train–validation gap.
-
-![Learning-rate sweep endpoints](experiments/lr_sweep/lr_sweep_endpoints.svg)
-
-The original validation-loss anomaly was traced to encoding the two splits with
-different tokenizers. After re-encoding validation data with the training
-vocabulary and merges, a 200-step diagnostic ended at train/validation losses of
-`4.336/4.312`, respectively. The full analysis records the before/after evidence,
-remaining caveats, and next confirmation grid in the
-[sweep report](experiments/lr_sweep/README.md).
-
 ## Repository structure
 
 ```text
@@ -62,8 +45,6 @@ remaining caveats, and next confirmation grid in the
 ├── tests/                    # Stanford assignment tests and adapter layer
 ├── docs/notes/               # chapter-indexed Chinese notes
 ├── experiments/
-│   ├── lr_sweep/             # reconstructed results, figure, and analysis
-│   ├── b200_protocol.md       # preflight, training, and sampling protocol
 │   └── ablations.md           # controlled ablation matrix
 ├── main_train.py             # training and W&B entry point
 └── cs336_assignment1_basics.pdf
@@ -100,11 +81,6 @@ uv run python main_train.py \
 
 ## Reproducibility and limitations
 
-- Current sweep rows are reconstructed from local W&B summaries and are endpoint
-  comparisons, not a substitute for exported full histories.
-- Early sweep validation endpoints are invalid for model selection because the
-  validation split was encoded with a different tokenizer. They are retained as a
-  documented data-pipeline failure; new sweeps must use the shared-tokenizer data.
 - Runs with different iteration counts or evaluation sample counts are labeled and
   should not be compared as if they were controlled replicates.
 - Random seeds were not frozen in the existing sweep; final claims require at least

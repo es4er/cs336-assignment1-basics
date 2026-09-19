@@ -7,9 +7,7 @@ Raw datasets, checkpoints, and `wandb/` caches are intentionally excluded from G
 
 | Study | Status | Entry point | Report |
 |---|---:|---|---|
-| Learning-rate range finding | Completed locally | `main_train.py` | [`lr_sweep/README.md`](lr_sweep/README.md) |
-| B200 baseline training | Planned | `main_train.py` | [`b200_protocol.md`](b200_protocol.md) |
-| Sampling study | Planned | to be added after baseline | [`b200_protocol.md`](b200_protocol.md#sampling-evaluation) |
+| Learning-rate sweep | Ready to rerun on repaired data | `main_train.py` | [W&B dashboard](https://wandb.ai/meiyuxin7-china-university-of-petroleum/cs336-assignment1/table) |
 | Architectural ablations | Planned | CLI flags in `main_train.py` | [`ablations.md`](ablations.md) |
 
 ## Reproducibility policy
@@ -18,4 +16,3 @@ Every reported run should record the Git commit, random seed, hardware, CUDA/PyT
 versions, tokenizer checksum, dataset checksum, full configuration, wall-clock time,
 and W&B run URL. Comparisons are valid only when the tokenizer, train/validation
 split, token budget, evaluation cadence, and seed policy are held fixed.
-
