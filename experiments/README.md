@@ -8,6 +8,7 @@ Raw datasets, checkpoints, and `wandb/` caches are intentionally excluded from G
 | Study | Status | Entry point | Report |
 |---|---:|---|---|
 | Learning-rate sweep | Complete: best tested peak LR `2e-3` | `main_train.py` | [`lr_sweep/README.md`](lr_sweep/README.md) · [`results.csv`](lr_sweep/results.csv) |
+| Baseline training run | Stopped at 33,078 / 40,000 steps; val loss 1.3597 | `main_train.py` | [`baseline/README.md`](baseline/README.md) |
 | Architectural ablations | Planned | CLI flags in `main_train.py` | [`ablations.md`](ablations.md) |
 
 ## Reproducibility policy

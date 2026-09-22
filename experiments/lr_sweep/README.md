@@ -204,5 +204,7 @@ local confirmation sweep rather than scaling the rate blindly.
 
 - Tracked in the W&B project `cs336-assignment1`
 - Included runs: 12 names beginning with `lr_sweep_v2_`
-- Excluded runs: `smoke_4090_lr2e-3_100` and `tinystories_baseline_lr2e-3_40k`
+- Excluded runs: `smoke_4090_lr2e-3_100` and `tinystories_baseline_lr2e-3_40k`. The
+  latter is not a sweep candidate but the long run that used this sweep's selected
+  rate; it has [its own report](../baseline/README.md).
 - No W&B records were modified or deleted while preparing this report.
