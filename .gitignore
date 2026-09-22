@@ -21,6 +21,10 @@ tmp/
 *.ckpt
 !tests/fixtures/ts_tests/model.pt
 
+# Exported figures are part of the written reports and are tracked, unlike the
+# local `wandb/` telemetry cache ignored above.
+!experiments/wandb/
+
 # Local secrets
 .env
 .env.*
