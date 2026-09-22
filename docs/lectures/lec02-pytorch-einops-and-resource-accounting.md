@@ -604,9 +604,3 @@ optimizer_state = {i: dict(p_state) for i, (p, p_state) in enumerate(optimizer.s
 ```python
 optimizer.zero_grad(set_to_none=True)
 ```
-
-
-## 4.5 train_loop()
-# 5. More memory optimizations
-## 5.1 gradient_accumulation()
-## 5.2 activation_checkpointing()
