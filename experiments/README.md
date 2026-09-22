@@ -7,7 +7,7 @@ Raw datasets, checkpoints, and `wandb/` caches are intentionally excluded from G
 
 | Study | Status | Entry point | Report |
 |---|---:|---|---|
-| Learning-rate sweep | Complete: best tested peak LR `2e-3` | `main_train.py` | [`lr_sweep/README.md`](lr_sweep/README.md) · [`results.csv`](lr_sweep/results.csv) · [W&B](https://wandb.ai/meiyuxin7-china-university-of-petroleum/cs336-assignment1/table) |
+| Learning-rate sweep | Complete: best tested peak LR `2e-3` | `main_train.py` | [`lr_sweep/README.md`](lr_sweep/README.md) · [`results.csv`](lr_sweep/results.csv) |
 | Architectural ablations | Planned | CLI flags in `main_train.py` | [`ablations.md`](ablations.md) |
 
 ## Reproducibility policy

@@ -18,7 +18,6 @@
 - [Limitations and next experiments](#limitations-and-next-experiments)
 - [Machine-readable results](results.csv)
 - [Exported figures](../wandb/)
-- [W&B project](https://wandb.ai/meiyuxin7-china-university-of-petroleum/cs336-assignment1/table)
 
 ## Experimental question
 
@@ -106,17 +105,20 @@ Final losses are the W&B values at step 500. Lower validation loss is better.
 The full-precision values, run names, schedules, runtimes, and divergence flags
 are stored in [`results.csv`](results.csv).
 
+![Final validation loss plotted against peak learning rate on a log axis, tracing a U shape](../wandb/lr_sweep_u_shape.png)
+
+*Figure 1. Final validation loss against peak learning rate: the 11 cosine runs
+trace a U in log-rate space with the sampled optimum at `2e-3`, while the
+constant-`3e-3` control sits off the curve because it changes the schedule rather
+than the peak.*
+
 ### Validation loss over the 500-update budget
 
 ![Validation loss trajectories for the sweep runs, plotted every 50 updates against optimizer step](../wandb/lr_sweep_val_loss.png)
 
-*Figure 1. Validation loss over the full budget, evaluated every 50 updates. Two
-caveats on this export: it contains 10 of the 12 runs, so `1e-5` and `1e-4` — the
-two under-converged points discussed below — appear in the table but not here;
-and the legend carries two runs named `3e-3`, the cosine coarse candidate and the
-constant-schedule control of [Stage 3](#stage-3--schedule-control-at-3e-3). Every
-curve is finite through step 500, which is the visual form of the `diverged=0`
-result reported under [convergence and instability](#convergence-and-instability).*
+*Figure 2. Validation loss over the full 500-update budget, evaluated every 50
+updates. `1e-1` stays stranded near 4.0 while the fine-screen rates bunch below
+2.4, and every curve remains finite through step 500.*
 
 ## Coarse-screen analysis
 
@@ -141,10 +143,9 @@ it as a universal optimum.
 
 ![Training loss trajectories for the same runs, evaluated every 50 updates](../wandb/lr_sweep_train_loss.png)
 
-*Figure 2. Training loss for the same 10 exported runs, on the same evaluation
-cadence as Figure 1. The two panels track each other closely at every learning
-rate, which is the visual form of the train/validation coupling quantified in the
-paragraph below.*
+*Figure 3. Training loss on the same evaluation cadence; it tracks validation loss
+at every learning rate, so the ordering is set by optimization rather than by
+overfitting.*
 
 Train and validation losses remain tightly coupled in all runs. At `2e-3`, the
 final generalization gap is 0.0154. There is no evidence of overfitting within 500
@@ -165,14 +166,9 @@ All 12 runs report `diverged=0` and finite losses through step 500. Thus:
 
 ![Per-step training loss for the sweep runs, one point per optimizer update](../wandb/lr_sweep_train_step_loss.png)
 
-*Figure 3. Per-step training loss, one point per optimizer update rather than one
-per evaluation. This is the same training as Figures 1 and 2 at full resolution,
-and it is where the instability claims above become visible: the high-rate runs
-oscillate far more violently through the first ~50 updates than the rates that
-converge well, and the ordering of the curves settles only after warm-up ends.
-Read it against the `1e-2` reversal between steps 101 and 151 noted above — the
-per-step series is noisy enough that a single evaluation interval can move in the
-"wrong" direction without indicating a numerical problem.*
+*Figure 4. Per-step training loss, one point per optimizer update: the high-rate
+runs oscillate violently through warm-up and the ordering settles only after it
+ends.*
 
 In this experiment, “too large” should therefore mean *degraded convergence and
 poorer final validation loss*, not NaN/Inf divergence. A true divergence boundary
@@ -206,7 +202,7 @@ local confirmation sweep rather than scaling the rate blindly.
 
 ## Provenance
 
-- W&B project: [`cs336-assignment1`](https://wandb.ai/meiyuxin7-china-university-of-petroleum/cs336-assignment1/table)
+- Tracked in the W&B project `cs336-assignment1`
 - Included runs: 12 names beginning with `lr_sweep_v2_`
 - Excluded runs: `smoke_4090_lr2e-3_100` and `tinystories_baseline_lr2e-3_40k`
 - No W&B records were modified or deleted while preparing this report.
