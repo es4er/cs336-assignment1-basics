@@ -80,11 +80,11 @@
 
 普通 FFN 是：
 
-$\mathrm{FF}(x)=\operatorname{ReLU}(xW_1)W_2$ 
+$\mathrm{FF}(x)=\mathrm{ReLU}(xW_1)W_2$ 
 
 可以分三步理解：
 
- $x \xrightarrow{W_1} h \xrightarrow{\operatorname{ReLU}} a \xrightarrow{W_2} \text{output}$ 
+ $x \xrightarrow{W_1} h \xrightarrow{\mathrm{ReLU}} a \xrightarrow{W_2} \text{output}$ 
 
 其中 $x$ 是当前 token 的 hidden state，$W_1$ 把它投影到更宽的 FFN 中间空间，ReLU 决定哪些中间特征被保留，$W_2$ 再投影回模型维度。
 
@@ -96,39 +96,39 @@ $g=xV$
 
 于是：
 
-$\operatorname{ReLU}(xW_1) \quad\rightarrow\quad \operatorname{ReLU}(xW_1)\odot(xV)$ 
+$\mathrm{ReLU}(xW_1) \quad\rightarrow\quad \mathrm{ReLU}(xW_1)\odot(xV)$ 
 
 这里的 $\odot$ 表示逐元素相乘，不是矩阵乘法。
 
 完整的 ReGLU 为：
 
-$\mathrm{FF}_{\mathrm{ReGLU}}(x) = \left[ \operatorname{ReLU}(xW_1) \odot (xV) \right]W_2$ 
+$\mathrm{FF}_{\mathrm{ReGLU}}(x) = \left[ \mathrm{ReLU}(xW_1) \odot (xV) \right]W_2$ 
 
 也就是说，$xW_1$ 是“候选特征”，而 $xV$ 是由同一个输入 $x$ 算出来的、针对每个特征维度的动态调节系数。
 
 一个数值例子：
 
- $\operatorname{ReLU}(xW_1)=[2,\,3,\,0]      xV=[0.5,\,2,\,-1]$ 
+ $\mathrm{ReLU}(xW_1)=[2,\,3,\,0],\qquad xV=[0.5,\,2,\,-1]$ 
 
 逐元素相乘：
 
  $[2,3,0]\odot[0.5,2,-1]=[1,6,0]$ 
 
 含义是：
-- 第一维特征被缩小为原来的 \(0.5\) 倍；
-- 第二维被放大为原来的 \(2\) 倍；
+- 第一维特征被缩小为原来的 $0.5$ 倍；
+- 第二维被放大为原来的 $2$ 倍；
 - 第三维本来就被 ReLU 关闭，因此仍为 0。
 
-所以，GLU 中的 “gate” 不一定严格介于 0 和 1；在这页的 ReGLU 里，\(xV\) 可以大于 1，也可以为负。它更准确地说是一个输入相关的“逐维调制器”。
+所以，GLU 中的 “gate” 不一定严格介于 0 和 1；在这页的 ReGLU 里，$xV$ 可以大于 1，也可以为负。它更准确地说是一个输入相关的“逐维调制器”。
 
 常见变体只是把左边的 ReLU 换掉：
 
-$\mathrm{GeGLU}(x)= \bigl[\operatorname{GELU}(xW_1)\odot(xV)\bigr]W_2$ 
-$\mathrm{SwiGLU}(x)= \bigl[\operatorname{Swish}(xW_1)\odot(xV)\bigr]W_2$ 
+$\mathrm{GeGLU}(x)= \bigl[\mathrm{GELU}(xW_1)\odot(xV)\bigr]W_2$ 
+$\mathrm{SwiGLU}(x)= \bigl[\mathrm{Swish}(xW_1)\odot(xV)\bigr]W_2$ 
 
 其中 SwiGLU 是 LLaMA、Mistral、PaLM 等现代 LLM 很常用的 FFN 形式。
 
-最后，为什么它通常更有效？普通 FFN 只能通过单个激活函数决定某个特征是否通过；GLU 让模型额外学习“在当前上下文下，这个特征该被放大多少”。这提高了 FFN 的表达能力，但代价是多了一套参数 \(V\)。因此实践中会把 FFN 的中间维度缩小到约原来的 \(2/3\)，以让总参数量和计算量大致保持不变。
+最后，为什么它通常更有效？普通 FFN 只能通过单个激活函数决定某个特征是否通过；GLU 让模型额外学习“在当前上下文下，这个特征该被放大多少”。这提高了 FFN 的表达能力，但代价是多了一套参数 $V$。因此实践中会把 FFN 的中间维度缩小到约原来的 $2/3$，以让总参数量和计算量大致保持不变。
 
 ## 4.3 为什么现代模型偏好 SwiGLU / GeGLU
 
@@ -159,12 +159,12 @@ $\mathrm{SwiGLU}(x)= \bigl[\operatorname{Swish}(xW_1)\odot(xV)\bigr]W_2$
 
 ![lec03 figure 10](assets/lec03-10.png)
 例如，“we”和“know”：
-- 在 “we know that” 中，位置是 \(0,1\)，距离是 1；
-- 在 “of course we know” 中，位置是 \(2,3\)，距离还是 1。
+- 在 “we know that” 中，位置是 $0,1$，距离是 1；
+- 在 “of course we know” 中，位置是 $2,3$，距离还是 1。
 直觉上，这两种情况下 “we → know” 的相对位置关系应该相同。
 绝对位置编码和正弦位置编码：模型直接看到的是绝对位置 $i$，而非单纯的距离 $i-j$。
 
-RoPE 希望构造带位置的表示 \(f(x,i)\)，使得：
+RoPE 希望构造带位置的表示 $f(x,i)$，使得：
 $\langle f(x,i),f(y,j)\rangle=g(x,y,i-j)$ 
 
 即：
@@ -179,12 +179,12 @@ RoPE 是位置编码方法，但它注入位置的地点是 attention 的 Q 和 
 
 标准 attention 为：
 
- $\operatorname{Attention}(Q,K,V) = \operatorname{softmax} \left( \frac{QK^\top}{\sqrt{d}} \right)V$ 
+ $\mathrm{Attention}(Q,K,V) = \mathrm{softmax} \left( \frac{QK^\top}{\sqrt{d}} \right)V$ 
 
-RoPE 只改变 \(Q,K\)：
+RoPE 只改变 $Q,K$：
 
- $Q\leftarrow\operatorname{RoPE}(Q),\qquad K\leftarrow\operatorname{RoPE}(K)$ 
-通常不改变 \(V\)。
+ $Q\leftarrow\mathrm{RoPE}(Q),\qquad K\leftarrow\mathrm{RoPE}(K)$ 
+通常不改变 $V$。
 
 原因：
 - Q-K 内积决定“该关注谁”，需要位置与距离信息；
@@ -312,7 +312,7 @@ RoPE 只改变 \(Q,K\)：
 
 即：
 
-$\operatorname{softmax} \left( \frac{Q_tK_{1:t}^{\top}}{\sqrt{d}} \right)V_{1:t}$ 
+$\mathrm{softmax} \left( \frac{Q_tK_{1:t}^{\top}}{\sqrt{d}} \right)V_{1:t}$ 
 
 **为什么推理常受内存带宽限制？**
 生成一个 token 时，模型要从显存中读取很长的一串历史 K、V cache。

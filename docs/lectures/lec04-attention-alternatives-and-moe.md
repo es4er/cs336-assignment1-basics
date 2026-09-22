@@ -235,7 +235,7 @@ token → router 选 top-k experts → 仅运行这 k 个 FFN → 加权合并�
 # 3. Routing（路由）
 ## 3.1 路由类型
 
-- **Token-choice**：每个 token 选 top-\(k\) 个 expert；最常见。
+- **Token-choice**：每个 token 选 top-$k$ 个 expert；最常见。
 - **Expert-choice**：每个 expert 选自己要处理的 token。
 - **全局优化式路由**：通过匹配/线性分配来决定 token-expert 对应。
 - 其他历史路线：
@@ -328,18 +328,18 @@ token → router 选 top-k experts → 仅运行这 k 个 FFN → 加权合并�
 - 约 16B 总参数、2.8B active parameters。
 - 2 个 shared experts。
 - 细粒度 routed experts。
-- 标准 top-\(k\) routing。
+- 标准 top-$k$ routing。
 - 使用 expert 与 device 两级辅助负载均衡。
 
 ## 7.2 DeepSeek MoE v2
 - 约 236B 总参数、21B active parameters。
-- 引入 top-\(M\) device routing。
+- 引入 top-$M$ device routing。
 - 更重视通信均衡：同时平衡通信流入与流出。
 
 ## 7.3 DeepSeek MoE v3
 - 约 671B 总参数、37B active parameters。
 - 1 个 shared expert、约 258 个 routed experts、每 token 激活 8 个。
-- 使用 sigmoid + softmax 的 top-\(k\) 路由。
+- 使用 sigmoid + softmax 的 top-$k$ 路由。
 - 使用动态 expert bias 的负载均衡，并加 sequence-level auxiliary loss。
 
 # 8. DeepSeek v3 的配套组件
