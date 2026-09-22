@@ -102,7 +102,7 @@ Final losses are the W&B values at step 500. Lower validation loss is better.
 | **Fine** | **`2e-3`** | **cosine** | **2.3043** | **2.3197** | **0.0154** | **best validation loss** |
 | Control | `3e-3` | constant | 2.5612 | 2.5767 | 0.0155 | worse late refinement |
 
-The full-precision values, W&B run IDs, schedules, runtimes, and divergence flags
+The full-precision values, run names, schedules, runtimes, and divergence flags
 are stored in [`results.csv`](results.csv).
 
 ## Coarse-screen analysis
