@@ -1,0 +1,13 @@
+stage,run_id,run_name,peak_lr,min_lr,schedule,steps,final_train_loss,final_val_loss,final_gap,diverged,elapsed_seconds
+coarse,huy5qteg,lr_sweep_v2_lr_1e-5,0.00001,0.000001,cosine,500,6.715819,6.713933,-0.001886,0,278.208
+coarse,qddf6xdn,lr_sweep_v2_lr_1e-4,0.0001,0.00001,cosine,500,3.465539,3.479774,0.014235,0,276.217
+coarse,r4b6hivx,lr_sweep_v2_lr_3e-4,0.0003,0.00003,cosine,500,2.823314,2.834778,0.011464,0,278.295
+coarse,50ubyj3d,lr_sweep_v2_lr_1e-3,0.001,0.0001,cosine,500,2.389278,2.399512,0.010234,0,279.939
+coarse,jqjcytt2,lr_sweep_v2_lr_3e-3,0.003,0.0003,cosine,500,2.398724,2.414743,0.016019,0,286.368
+coarse,xvf32a68,lr_sweep_v2_lr_1e-2,0.01,0.001,cosine,500,3.153891,3.166093,0.012203,0,276.877
+coarse,z7c2c49r,lr_sweep_v2_lr_1e-1,0.1,0.01,cosine,500,3.988816,4.008233,0.019417,0,279.877
+fine,j72a8c4i,lr_sweep_v2_lr_5e-4,0.0005,0.00005,cosine,500,2.601811,2.614076,0.012265,0,278.232
+fine,h2kmbavf,lr_sweep_v2_lr_7e-4,0.0007,0.00007,cosine,500,2.484164,2.495392,0.011228,0,276.847
+fine,flmwihr5,lr_sweep_v2_lr_1.5e-3,0.0015,0.00015,cosine,500,2.324298,2.335010,0.010712,0,278.481
+fine,zuhhn2t1,lr_sweep_v2_lr_2e-3,0.002,0.0002,cosine,500,2.304260,2.319676,0.015416,0,278.271
+schedule_control,rrd6cwdh,lr_sweep_v2_lr_3e-3,0.003,0.003,constant_after_warmup,500,2.561177,2.576707,0.015529,0,277.539
