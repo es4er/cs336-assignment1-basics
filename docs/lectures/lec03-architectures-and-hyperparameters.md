@@ -153,7 +153,7 @@ $\mathrm{SwiGLU}(x)= \bigl[\mathrm{Swish}(xW_1)\odot(xV)\bigr]W_2$
 # 5. 位置编码
 ## 5.1 四类位置编码
 ![lec03 figure 9](assets/lec03-09.png)
-## 5.3 RoPE
+## 5.2 RoPE
 
 > 希望 attention 判断两个词是否相关时，主要看它们相隔多远，而不是它们分别处在句子的第几个位置。
 
@@ -190,7 +190,7 @@ RoPE 只改变 $Q,K$：
 - Q-K 内积决定“该关注谁”，需要位置与距离信息；
 - V 是最终被汇总的内容，不负责计算匹配分数。
 
-## 5.4 小结
+## 5.3 小结
 
 - 默认做法：现代 decoder-only LLM 普遍使用 RoPE。
 - 例外模型：原始 Transformer 使用正弦编码；GPT-1/2/3、OPT 使用绝对位置嵌入；T5、Chinchilla 等使用相对位置 bias。
